@@ -21,7 +21,7 @@ export const Pagination: React.FC<Props> = ({
   //   { length: Math.ceil(total / perPage) },
   //   (_, i) => i + 1,
   // );
-  const pagesToShow = getNumbers(1,  Math.ceil(total / perPage))
+  const pagesToShow = getNumbers(1, Math.ceil(total / perPage));
 
   return (
     <>
