@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-// import { getNumbers } from './utils';
+import { getNumbers } from './utils';
 import { Pagination } from './components/Pagination';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -11,10 +11,11 @@ export const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const total = 42;
-  const arrayOfItems = Array.from({ length: total }, (_, i) => i + 1);
+  // const arrayOfItems = Array.from({ length: total }, (_, i) => i + 1);
+  const arrayOfItems = getNumbers(1, total);
   const startItem = (currentPage - 1) * perPage;
   const endItem = currentPage * perPage;
-  const itemsToShow = [...arrayOfItems].slice(startItem, endItem);
+  const itemsToShow = arrayOfItems.slice(startItem, endItem);
 
   function handlePageChange(page: number) {
     if (page < 1 || page > Math.ceil(total / perPage)) {
